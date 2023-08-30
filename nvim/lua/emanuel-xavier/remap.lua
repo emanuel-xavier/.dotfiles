@@ -8,3 +8,6 @@ vim.keymap.set("n", "<Tab>", ":tabnext<CR>", { noremap = true, silent = true }) 
 vim.keymap.set("n", "<S-Tab>", ":tabprevious<CR>", { noremap = true, silent = true }) -- go the the previous tab
 
 vim.keymap.set("n", "<leader>pf", ":exec 'e#'<CR>") -- go back to the previous file
+
+vim.keymap.set("n", "<leader>vs", ":exec ':vsp'<CR>") -- vertical split
+vim.keymap.set("n", "<leader>hs", ":exec ':sp'<CR>") -- horizontal split
