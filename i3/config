@@ -187,3 +187,7 @@ bar {
 }
 
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
+
+
+# sreenshot
+bindsym $mod+Shift+s exec flameshot gui -c -p "$HOME/Pictures/screenshots/$(date '+%Y-%m-%d-%H-%M-%S')"
