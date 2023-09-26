@@ -1,11 +1,11 @@
 #!/bin/bash
 
-sudo apt install gcc make default-libmysqlclient-dev libssl-dev -y
-sudo apt install -y zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm \
+apt install -y curl gcc make default-libmysqlclient-dev libssl-dev \
+  zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev llvm \
   libncurses5-dev libncursesw5-dev \
-  xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git
+  xz-utils tk-dev libffi-dev liblzma-dev python3-openssl git \
+  zsh
 
-sudo apt install zsh -y
 chsh -s /bin/zsh
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
