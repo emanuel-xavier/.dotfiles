@@ -193,3 +193,6 @@ bindsym $mod+Shift+s exec flameshot gui -c -p "$HOME/Pictures/screenshots/$(date
 
 # nytrogen
 exec --no-startup-id nytrogen --restore
+
+# picom
+exec --no-startup-id picom -CGb
