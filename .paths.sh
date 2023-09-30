@@ -6,7 +6,8 @@ add_folder_to_path() {
 
 PATHS_TO_ADD=( "/home/emanuel/.go/bin"    \
                "/home/emanuel/.nvim/bin"  \
-               "/home/emanuel/.cargo/bin" )
+               "/home/emanuel/.cargo/bin" \
+               "/home/emanuel/.node/bin"  )
 
 for i in "${PATHS_TO_ADD[@]}"; do
   add_folder_to_path "$i"
