@@ -15,9 +15,13 @@ return {
       ensure_installed = {
         "lua_ls",
         "rust_analyzer",
-        "html",
+        "clangd",
+        "gopls",
+        "tsserver",
         "pyright",
-        "cssls"
+        "sqlls",
+        "html",
+        "cssls",
       },
       utomatic_installation = true,
     })
