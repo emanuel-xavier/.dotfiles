@@ -1,39 +1,64 @@
 return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
-  dependencies = {
-    "hrsh7th/cmp-buffer", -- source for text in buffer
-    "hrsh7th/cmp-path", -- source for file system paths
-    "L3MON4D3/LuaSnip", -- snippet engine
-    "saadparwaiz1/cmp_luasnip", -- for autocompletion
+dependencies = {
+    "hrsh7th/cmp-vsnip", "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-nvim-lua",
+    "hrsh7th/cmp-nvim-lsp-signature-help", "hrsh7th/vim-vsnip",
+    "hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "L3MON4D3/LuaSnip"
   },
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
 
+    vim.opt.completeopt = {"menuone", "noselect", "noinsert", "preview"}
+    vim.opt.shortmess = vim.opt.shortmess + {c = true}
+
     cmp.setup({
-      snippet = { 
+      snippet = {
         expand = function(args)
-        luasnip.lsp_expand(args.body)
-      end,
-    },
+          luasnip.lsp_expand(args.body)
+        end
+      },
+
+      mapping = cmp.mapping.preset.insert({
+        ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+        ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+        ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+        ["<C-f>"] = cmp.mapping.scroll_docs(4),
+        ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
+        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+        ["<CR>"] = cmp.mapping.confirm({select = false})
+      }),
+
+      -- sources for autocompletion
+      sources = cmp.config.sources({
+        {name = "path"}, {name = "luasnip"},
+        {name = "buffer", keyword_length = 3},
+        {name = "nvim_lsp", keyword_length = 3}, {name = "nvim_lua"},
+        {name = "nvim_lsp_signature_help", keyword_length = 2},
+        {name = "vsnip", keyword_length = 2}
+      }),
+
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+      },
+
+      formatting = {
+        fields = {"menu", "abbr", "kind"},
+        format = function(entry, item)
+          local menu_icon = {
+            nvim_lsp = 'λ',
+            vsnip = '⋗',
+            buffer = 'b',
+            path = 'p'
+          }
+          item.menu = menu_icon[entry.source.name]
+          return item
+        end 
+      },
       
-    mapping = cmp.mapping.preset.insert({
-      ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
-      ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
-      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-      ["<C-f>"] = cmp.mapping.scroll_docs(4),
-      ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-      ["<C-e>"] = cmp.mapping.abort(), -- close completion window
-      ["<CR>"] = cmp.mapping.confirm({ select = false }),
-    }),
-    -- sources for autocompletion
-    sources = cmp.config.sources({
-      { name = "luasnip" }, -- snippets
-      { name = "buffer" }, -- text within current buffer
-      { name = "path" }, -- file system paths
-    }),
-    -- configure lspkind for vs-code like pictograms in completion menu
     })
+
   end
 }

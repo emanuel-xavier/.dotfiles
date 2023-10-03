@@ -8,7 +8,20 @@ return {
     local mason_lspconfig = require("mason-lspconfig")
 
     mason.setup({
-
+      ensure_installed = {
+        -- Linter
+        "cpplint",
+        "eslint_d", 
+        "golangci-lint",
+        "pylint",
+        -- Formatter
+        "clang-format",
+        "gofumpt",
+        "goimports",
+        "goimports-reviser",
+        "prettier",
+        "sqlfmt",
+      }
     })
 
     mason_lspconfig.setup({
