@@ -33,10 +33,10 @@ dependencies = {
       -- sources for autocompletion
       sources = cmp.config.sources({
         {name = "path"}, {name = "luasnip"},
-        {name = "buffer"},
         {name = "nvim_lsp"}, {name = "nvim_lua"},
         {name = "nvim_lsp_signature_help"},
-        {name = "vsnip"}
+        {name = "vsnip"},
+        {name = "buffer"},
       }),
 
       window = {

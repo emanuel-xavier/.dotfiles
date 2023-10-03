@@ -8,6 +8,7 @@ return {
   config = function()
     local lspconfig = require("lspconfig")
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    local util = require("lspconfig/util")
 
     local keymap = vim.keymap
     local opts = { noremap = true, silent = true }
@@ -38,7 +39,6 @@ return {
 
     -- Enable the following language servers
     local servers = { 
-      'rust_analyzer', 
       'pyright', 
       'gopls', 
       'clangd', 
@@ -50,5 +50,19 @@ return {
         capabilities = capabilities,
       }
     end
+
+    lspconfig.rust_analyzer.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = {"rust"},
+      root_dir = util.root_pattern("Cargo.toml"),
+      settings = {
+        ["rust-analyzer"] = {
+          cargo = {
+            akllFeatures = true,
+          }
+        }
+      }
+    })
 end
 }
