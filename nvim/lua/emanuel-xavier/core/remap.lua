@@ -11,3 +11,12 @@ vim.keymap.set("n", "<leader>pf", ":exec 'e#'<CR>") -- go back to the previous f
 
 vim.keymap.set("n", "<leader>vs", ":exec ':vsp'<CR>") -- vertical split
 vim.keymap.set("n", "<leader>hs", ":exec ':sp'<CR>") -- horizontal split
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- move highlight lines up
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- move highlight lines down
+
+vim.keymap.set("x", "<leader>p", "\"_dP") -- paste without lose paste buffer
+vim.keymap.set("n", "<leader>y", "\"+y") -- yank
+
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
