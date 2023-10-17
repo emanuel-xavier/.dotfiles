@@ -18,5 +18,5 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv") -- move highlight lines down
 vim.keymap.set("x", "<leader>p", "\"_dP") -- paste without lose paste buffer
 vim.keymap.set("n", "<leader>y", "\"+y") -- yank
 
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]]) -- replace what is under the cursor
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true }) -- make the file executable
