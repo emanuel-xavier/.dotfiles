@@ -25,6 +25,15 @@ return {
 
       opts.desc = "Smart rename"
       keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+
+      opts.desc = "Signature help"
+      vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+      opts.desc = "Rename"
+      vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+
+      opts.desc = "Go to definition"
+      vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     end
 
     local signs = { Error = "E", Warn = "W", Hint = "H", Info = "I" }
@@ -43,6 +52,10 @@ return {
       'gopls', 
       'clangd', 
       'sqlls', 
+      'svelte',
+      'html',
+      'cssls',
+      'esbonio',
     }
     for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup {
