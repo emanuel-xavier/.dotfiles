@@ -16,25 +16,34 @@ return {
       opts.bufnr = bufnr
 
       opts.desc = "Show LSP references"
-      keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", {buffer=0}, opts)
+      keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", {buffer=0})
 
       opts.desc = "Go to declaration"
-      keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-
-      opts.desc = "Show documentation for what is under cursor"
-      keymap.set("n", "K", vim.lsp.buf.hover, opts)
-
-      opts.desc = "Smart rename"
-      keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-
-      opts.desc = "Signature help"
-      vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-
-      opts.desc = "Rename"
-      vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+      keymap.set("n", "gD", vim.lsp.buf.declaration)
 
       opts.desc = "Go to definition"
-      vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
+
+      opts.desc = "Go to type definition"
+      vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {buffer=0})
+
+      opts.desc = "Go to implementation"
+      vim.keymap.set("n", "gt", vim.lsp.buf.implementation, {buffer=0})
+
+      opts.desc = "Show documentation for what is under cursor"
+      keymap.set("n", "K", vim.lsp.buf.hovers)
+
+      opts.desc = "Go to next diagnostic"
+      keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, {buffer=0})
+
+      opts.desc = "Go to previous diagnostic"
+      keymap.set("n", "<leader>dk", vim.diagnostic.goto_next, {buffer=0})
+
+      opts.desc = "Diagnostic list"
+      keymap.set("n", "dl", "<cmd>Telescope diagnostic<cr>")
+
+      opts.desc = "Rename"
+      keymap.set("n", "<leader>r", vim.lsp.buf.rename, {buffer=0})
     end
 
     local signs = { Error = "E", Warn = "W", Hint = "H", Info = "I" }
