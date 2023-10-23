@@ -16,7 +16,7 @@ alias display="echo ' \
   xrandr --output <eDP-1> --scale <1.5>x<1.5>'"
 
 # keyboard
-echo "setxkbmap -model abnt2 -layout br"
+alias keyboard='echo "setxkbmap -model abnt2 -layout br"'
 
 # neovim
 alias vim="nvim"
