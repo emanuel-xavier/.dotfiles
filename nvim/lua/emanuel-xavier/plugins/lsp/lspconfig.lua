@@ -30,6 +30,8 @@ return {
       opts.desc = "Go to implementation"
       vim.keymap.set("n", "gt", vim.lsp.buf.implementation, {buffer=0})
 
+      vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, {buffer=0})
+
       opts.desc = "Show documentation for what is under cursor"
       keymap.set("n", "K", vim.lsp.buf.hovers)
 
@@ -59,7 +61,6 @@ return {
     -- Enable the following language servers
     local servers = { 
       'pyright', 
-      'gopls', 
       'clangd', 
       'sqlls', 
       'svelte',
@@ -70,9 +71,28 @@ return {
     for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup {
         on_attach = on_attach,
-        capabilities = capabilities,
+        capabilities = capabilities,  
       }
     end
+
+    lspconfig.gopls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = {"go", "gomod", "gowork", "gotmpl"},
+      root_dir = util.root_pattern({".git", "go.mod", "go.work"}),
+      cmd = {"gopls"},
+      single_file_support = true,
+      settings = {
+        gopls = {
+          completeUnimported = true,
+          -- usePlaceholders = true,
+          gofumpt = true,
+          analyses = {
+            unusedparams = true,
+          },
+        },
+      },     
+    })
 
     lspconfig.rust_analyzer.setup({
       on_attach = on_attach,
