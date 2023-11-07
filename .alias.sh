@@ -7,6 +7,11 @@ alias ptliferay='cd /home/emanuel/Petrosoft/liferay'
 # nextcloud
 alias nextcloud="/home/emanuel/AppImages/Nextcloud.AppImage"
 
+# Terminal navegation
+alias ..="cd .."
+alias ....="cd ../.."
+alias ......="cd ../../.."
+
 # arduino
 alias arduino="/opt/arduino-ide-2.1.0/arduino-ide"
 
