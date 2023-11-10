@@ -134,10 +134,10 @@ assign [class="firefox"] $ws9
 assign [class="spotify"] $ws10
 
 # automatic set focus new windows if it opens on another workspace than the current.
-for_window [class=gnome-terminal-server] focus
-for_window [class=firefox] focus
-for_window [class=discord] focus
-for_window [class=spotify] focus
+for_window [class="gnome-terminal-server"] focus
+for_window [class="firefox"] focus
+for_window [class="discord"] focus
+for_window [class="spotify"] focus
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
