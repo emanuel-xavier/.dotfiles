@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo apt install i3 i3blocks flameshot nytrogen -y
+sudo apt install i3 i3blocks flameshot nitrogen -y
 
 rm -rf ~/.config/i3
 ln -s $(pwd) ~/.config/i3
