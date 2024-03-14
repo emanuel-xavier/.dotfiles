@@ -1,0 +1,24 @@
+---
+- name: Install Neovim
+  hosts: "{{ target_hosts }}"
+  become: yes
+  vars:
+    git_repo: "https://github.com/emanuel-xavier/.dotfiles.git"
+    dotfiles_folders: "/home/{{ ansible_user }}/.dotfiles"
+  tasks:
+    - name: Install git
+      apt:
+        name: git
+
+    - name: Clone repository
+      git:
+        repo: "{{ git_repo }}"
+        dest: "{{ dotfiles_folders }}"
+        clone: yes
+        update: yes
+
+    - name: Setup neovim config
+      shell: |
+        rm -rf "/home/{{ ansible_user }}/.config/nvim"
+        ln -s "{{ dotfiles_folders }}/nvim" "/home/{{ ansible_user }}/.config/nvim"
+

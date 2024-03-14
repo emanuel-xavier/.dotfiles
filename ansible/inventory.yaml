@@ -1,0 +1,16 @@
+all:
+  hosts:
+    this_machine:
+      ansible_connection: local
+
+    vagrant:
+      ansible_host: 127.0.0.1
+      ansible_user: vagrant
+      ansible_ssh_pass: vagrant
+      ansible_password: vagrant
+      ansible_ssh_port: 2222
+      ansible_ssh_private_key_file: /home/emanuel/.ssh/vagrant_rsa
+    # Group
+    vagrant_ubuntu:
+      children:
+        vagrant:

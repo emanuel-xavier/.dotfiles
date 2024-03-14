@@ -1,0 +1,22 @@
+---
+- name: Install Neovim
+  hosts: "{{ target_hosts }}"
+  become: yes
+  vars:
+    nvim_folder: /opt/nvim
+  tasks:
+    - name: Create directory {{ nvim_folder }}
+      include_tasks: ./common/create-folder.yaml
+      vars:
+        path: "{{ nvim_folder }}"
+
+    - name: Create .config filder
+      include_tasks: ./common/create-folder.yaml
+      vars:
+        path: "/home/{{ ansible_user }}/.config"
+
+    - name: Download Neovim appimage and make it executable
+      include_tasks: ./neovim/download-nvim.yaml
+
+    - name: Make symbolic links
+      include_tasks: ./neovim/make-symbolic-link.yaml  

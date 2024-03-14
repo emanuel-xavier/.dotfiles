@@ -1,0 +1,9 @@
+- name: Download Neovim appimage
+  get_url:
+    url: "https://github.com/neovim/neovim/releases/latest/download/nvim.appimage"
+    dest: "{{ nvim_folder }}/nvim.appimage"
+
+- name: Set executable permission 
+  file:
+    path: "{{ nvim_folder }}/nvim.appimage"
+    mode: "a+rx"

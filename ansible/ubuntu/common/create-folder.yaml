@@ -1,0 +1,7 @@
+---
+- name: Create directory {{ path }}
+  file:
+    path: "{{ path }}"
+    state: directory
+
+

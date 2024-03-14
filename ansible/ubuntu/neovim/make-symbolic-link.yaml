@@ -1,0 +1,19 @@
+---
+- name: Make symbolic links for nvim
+  file:
+    src: "{{ nvim_folder }}/nvim.appimage"
+    dest: "/usr/bin/{{ item }}"
+    state: link
+    force: yes
+  with_items:
+    - nvim
+
+- name: Make symbolic links for vim
+  file:
+    src: "{{ nvim_folder }}/nvim.appimage"
+    dest: "/usr/bin/{{ item }}"
+    state: link
+    force: yes
+  with_items:
+    - vim
+
