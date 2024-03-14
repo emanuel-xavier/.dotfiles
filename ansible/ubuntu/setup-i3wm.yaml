@@ -1,0 +1,33 @@
+- name: Setup i3 windows manager
+  hosts: "{{ target_hosts }}"
+  become: yes
+  vars:
+    user_home: "/home/{{ ansible_user }}"
+    dotfiles_path: "{{ user_home }}/.dotfiles"
+  tasks:
+    - name: Install some packages 
+      apt:
+        name: 
+          - i3
+          - nitrogen
+          # TODO: install i3blocks and flameshot
+        state: present
+
+    - name: Create directory .config folder
+      include_tasks: ./common/create-folder.yaml
+      vars:
+        path: "{{ user_home }}/.config"
+
+    - name: Create symbolic link for i3 configs
+      file: 
+        src: "{{ dotfiles_path }}/i3"
+        dest: "{{ user_home }}/.config/i3"
+        state: link
+        force: yes
+
+    - name: Create symbolic link for i3blocks configs
+      file: 
+        src: "{{ dotfiles_path }}/i3/i3blocks.conf"
+        dest: "{{ user_home }}/.i3blocks.conf"
+        state: link
+        force: yes
