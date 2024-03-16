@@ -1,0 +1,21 @@
+---
+- name: Setup x11 preferences
+  hosts: "{{ target_hosts }}"
+  become: yes
+  vars:
+    dotfiles_folder: "/home/{{ ansiblue_user }}/.dotfiles"
+  tasks:
+    - name: Install inputlib
+      apt:
+        # update_cache: yes
+        #cache_valid_time: 86400
+        name: xserver-xorg-input-libinput
+    
+    - name: Create symbolic link for the config
+      file:
+        src: "{{ dotfiles_folder }}/x11/50-synaptics.conf" 
+        dest: "/etc/x11/xorg.conf.d/50-synaptics.conf"
+        state: link
+        force: yes
+    
+ 
