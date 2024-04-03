@@ -21,6 +21,7 @@ return {
         "goimports-reviser",
         "prettier",
         "sqlfmt",
+        "typescript-language-server"
       }
     })
 

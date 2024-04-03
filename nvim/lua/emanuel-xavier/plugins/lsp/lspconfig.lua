@@ -67,6 +67,7 @@ return {
       'html',
       'cssls',
       'esbonio',
+      'tsserver',
     }
     for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup {
