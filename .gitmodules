@@ -1,3 +1,6 @@
 [submodule "i3/i3blocks-scripts/battery"]
 	path = i3/i3blocks-scripts/battery
 	url = https://github.com/kb100/i3blocks-battery.git
+[submodule "i3/bumblebee-status"]
+	path = i3/bumblebee-status
+	url = git@github.com:tobi-wan-kenobi/bumblebee-status.git
