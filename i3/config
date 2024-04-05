@@ -224,3 +224,12 @@ exec --no-startup-id nitrogen --restore
 
 # picom
 # exec --no-startup-id picom --backend glx -CGb
+
+# remove panel border
+default_border pixel 1
+default_floating_border pixel 1
+
+# gaps
+# gaps
+gaps inner 6
+gaps outer 0
