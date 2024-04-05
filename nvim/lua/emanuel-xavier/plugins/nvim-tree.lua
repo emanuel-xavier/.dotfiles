@@ -5,7 +5,12 @@ return {
       vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeFocus<CR>', { noremap = true, silent = true }),
       vim.api.nvim_set_keymap('n', '<leader>ft', ':NvimTreeToggle<CR>', { noremap = true, silent = true }),
       view = {
-        side = "right",
+        side = "left",
+      },
+      actions = {
+        open_file = {
+          quit_on_open = true,
+        },
       },
     }) 
   end
