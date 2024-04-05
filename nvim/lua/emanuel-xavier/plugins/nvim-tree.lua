@@ -6,6 +6,7 @@ return {
       vim.api.nvim_set_keymap('n', '<leader>ft', ':NvimTreeToggle<CR>', { noremap = true, silent = true }),
       view = {
         side = "left",
+        width = 70,
       },
       actions = {
         open_file = {
