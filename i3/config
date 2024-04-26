@@ -211,7 +211,7 @@ bar {
      -p indicator.include="capslock" datetime.format="%d/%m %H:%M:%S" 
   font pango: Ubuntu Mono 11
   mode dock
-  # position top
+  position top
 }
 
 bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
