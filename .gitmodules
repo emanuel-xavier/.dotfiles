@@ -4,9 +4,12 @@
 [submodule "i3/bumblebee-status"]
 	path = i3/bumblebee-status
 	url = https://github.com/emanuel-xavier/bumblebee-status.git
+	branch = main
 [submodule "suckless/dmenu"]
 	path = suckless/dmenu
 	url = git@github.com:emanuel-xavier/dmenu.git
+	branch = master
 [submodule "suckless/surf"]
 	path = suckless/surf
 	url = git@github.com:emanuel-xavier/surf.git
+	branch = main
