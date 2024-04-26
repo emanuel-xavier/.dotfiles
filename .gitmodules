@@ -4,3 +4,6 @@
 [submodule "i3/bumblebee-status"]
 	path = i3/bumblebee-status
 	url = https://github.com/emanuel-xavier/bumblebee-status.git
+[submodule "suckless/dmenu"]
+	path = suckless/dmenu
+	url = git@github.com:emanuel-xavier/dmenu.git
