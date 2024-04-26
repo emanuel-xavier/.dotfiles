@@ -5,7 +5,9 @@ return {
   },
   config = function()
     require("lualine").setup({
-
+      sections = {
+        lualine_a = {"mode", "buffers"}
+      }
     })
   end
 }
