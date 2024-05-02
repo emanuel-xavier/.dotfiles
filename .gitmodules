@@ -13,3 +13,7 @@
 	path = suckless/surf
 	url = git@github.com:emanuel-xavier/surf.git
 	branch = main
+[submodule "suckless/st"]
+	path = suckless/st
+	url = git@github.com:emanuel-xavier/st.git
+  branch = main
