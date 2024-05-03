@@ -51,8 +51,8 @@ bindsym XF86MonBrightnessUp exec --no-startup-id ~/.dotfiles/i3/screen-brightnes
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-# bindsym $mod+Return exec st
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+Shift+q kill
