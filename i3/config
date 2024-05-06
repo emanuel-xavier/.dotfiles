@@ -226,7 +226,7 @@ bindsym $mod+Shift+s exec flameshot gui -c -p "$HOME/Pictures/screenshots/$(date
 exec --no-startup-id nitrogen --restore
 
 # picom
-# exec --no-startup-id picom --backend glx -CGb
+exec --no-startup-id picom --config ~/.config/picom.conf > /tmp/picom.log &
 
 # remove panel border
 default_border pixel 1
