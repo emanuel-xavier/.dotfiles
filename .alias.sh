@@ -15,6 +15,9 @@ alias ..="cd .."
 alias ....="cd ../.."
 alias ......="cd ../../.."
 
+# Exit
+alias :q="exit"
+
 # arduino
 alias arduino="/opt/arduino-ide-2.1.0/arduino-ide"
 
