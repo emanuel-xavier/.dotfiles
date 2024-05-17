@@ -31,5 +31,5 @@ vim.opt.updatetime = 50
 
 vim.opt.breakindent = true
 
-vim.opt.clipboard = "unnamedplus"
+vim.opt.clipboard = ""
 
