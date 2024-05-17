@@ -28,7 +28,7 @@ return {
       vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {buffer=0})
 
       opts.desc = "Go to implementation"
-      vim.keymap.set("n", "gt", vim.lsp.buf.implementation, {buffer=0})
+      vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer=0})
 
       vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, {buffer=0})
 
