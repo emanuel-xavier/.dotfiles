@@ -13,6 +13,9 @@ return {
         side = "left",
         width = 70,
       },
+      renderer = {
+        group_empty = true,
+      },
       actions = {
         open_file = {
           quit_on_open = true,
