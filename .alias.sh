@@ -1,6 +1,9 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 
+# Copy current dir
+alias ccd="pwd | xclip -sel clip"
+
 # Petrosoft folders
 alias ptsci='cd /home/emanuel/Petrosoft/science'
 alias ptinfra='cd /home/emanuel/Petrosoft/science/infra'
