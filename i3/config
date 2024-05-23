@@ -217,7 +217,7 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 bindsym $mod+Shift+s exec flameshot gui -c -p "$HOME/Pictures/screenshots/$(date '+%Y-%m-%d-%H-%M-%S')"
 
 # nytrogen
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id nitrogen --restore --force-setter=xwindows
 
 # picom
 exec --no-startup-id picom --config ~/.config/picom.conf > /tmp/picom.log &
