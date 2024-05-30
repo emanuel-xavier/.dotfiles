@@ -11,7 +11,7 @@ return {
       vim.api.nvim_set_keymap('n', '<leader>ft', ':NvimTreeToggle<CR>', { noremap = true, silent = true }),
       view = {
         side = "left",
-        width = 70,
+        width = 40,
       },
       renderer = {
         group_empty = true,
