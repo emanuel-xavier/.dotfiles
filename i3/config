@@ -129,15 +129,15 @@ set $ws9 "9:󰙯 "
 set $ws10 "10: "
 
 # bind program to workspace and focus to them on startup.
-assign [class="brave-browser"] $ws3
+assign [class="brave-browser"]  $ws3
 assign [class="Microsoft-edge"] $ws8
-assign [class="discord"] $ws9
-assign [class="Mattermost"] $ws9
-assign [class="Telegram"] $ws9
-assign [class="Spotify"] $ws10
+assign [class="discord"]        $ws9
+assign [class="Mattermost"]     $ws9
+assign [class="Telegram"]       $ws9
+assign [class="Spotify"]        $ws10
 
 # automatic set focus new windows if it opens on another workspace than the current.
-for_window [class="Spotify"] focus
+# for_window [class="Spotify"] focus
 
 # switch to workspace
 bindsym $mod+1 workspace number $ws1
