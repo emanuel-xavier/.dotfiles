@@ -12,40 +12,21 @@ return {
 
     local keymap = vim.keymap
     local opts = { noremap = true, silent = true }
+
     local on_attach = function(client, bufnr)
-      opts.bufnr = bufnr
+      local buf_opts = { noremap = true, silent = true, buffer = bufnr }
 
-      opts.desc = "Show LSP references"
-      keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
-
-      opts.desc = "Go to declaration"
-      keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-
-      opts.desc = "Go to definition"
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-
-      opts.desc = "Go to type definition"
-      vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
-
-      opts.desc = "Go to implementation"
-      vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-
-      vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-
-      opts.desc = "Show documentation for what is under cursor"
-      keymap.set("n", "K", vim.lsp.buf.hover, opts)
-
-      opts.desc = "Go to next diagnostic"
-      keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, opts)
-
-      opts.desc = "Go to previous diagnostic"
-      keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, opts)
-
-      opts.desc = "Diagnostic list"
-      keymap.set("n", "dl", "<cmd>Telescope diagnostics<CR>", opts)
-
-      opts.desc = "Rename"
-      keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
+      keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", {desc = "Show LSP references", buffer = bufnr})
+      keymap.set("n", "gD", vim.lsp.buf.declaration, {desc = "Go to declaration", buffer = bufnr})
+      keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition", buffer = bufnr})
+      keymap.set("n", "gt", vim.lsp.buf.type_definition, {desc = "Go to type definition", buffer = bufnr})
+      keymap.set("n", "gi", vim.lsp.buf.implementation, {desc = "Go to implementation", buffer = bufnr})
+      keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, {desc = "Signature help", buffer = bufnr})
+      keymap.set("n", "K", vim.lsp.buf.hover, {desc = "Show documentation for what is under cursor", buffer = bufnr})
+      keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, {desc = "Go to next diagnostic", buffer = bufnr})
+      keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, {desc = "Go to previous diagnostic", buffer = bufnr})
+      keymap.set("n", "dl", "<cmd>Telescope diagnostics<CR>", {desc = "Diagnostic list", buffer = bufnr})
+      keymap.set("n", "<leader>r", vim.lsp.buf.rename, {desc = "Rename", buffer = bufnr})
     end
 
     local signs = { Error = "E", Warn = "W", Hint = "H", Info = "I" }
