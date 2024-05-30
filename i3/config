@@ -205,7 +205,7 @@ bar {
    status_command ~/.dotfiles/i3/bumblebee-status/bumblebee-status \
      -t iceberg-dark-powerline \
      -m sensors disk memory battery indicator datetime dunstctl \
-     -p indicator.include="capslock" datetime.format="%d/%m %H:%M:%S" 
+     -p indicator.include="capslock" datetime.format="  %d/%m %H:%M:%S" 
   font pango: Ubuntu Mono 11
   mode dock
   position top
@@ -216,8 +216,8 @@ bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # sreenshot
 bindsym $mod+Shift+s exec flameshot gui -c -p "$HOME/Pictures/screenshots/$(date '+%Y-%m-%d-%H-%M-%S')"
 
-# nytrogen
-exec --no-startup-id nitrogen --restore --force-setter=xwindows
+# nitrogen
+exec --no-startup-id bash -c "sleep 2 && nitrogen --restore --force-setter=xwindows"
 
 # picom
 exec --no-startup-id picom --config ~/.config/picom.conf > /tmp/picom.log &
