@@ -16,36 +16,36 @@ return {
       opts.bufnr = bufnr
 
       opts.desc = "Show LSP references"
-      keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", {buffer=0})
+      keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", opts)
 
       opts.desc = "Go to declaration"
-      keymap.set("n", "gD", vim.lsp.buf.declaration)
+      keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
 
       opts.desc = "Go to definition"
-      vim.keymap.set("n", "gd", vim.lsp.buf.definition, {buffer=0})
+      vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 
       opts.desc = "Go to type definition"
-      vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, {buffer=0})
+      vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
 
       opts.desc = "Go to implementation"
-      vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {buffer=0})
+      vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
 
-      vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, {buffer=0})
+      vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 
       opts.desc = "Show documentation for what is under cursor"
-      keymap.set("n", "K", vim.lsp.buf.hovers)
+      keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
       opts.desc = "Go to next diagnostic"
-      keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, {buffer=0})
+      keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, opts)
 
       opts.desc = "Go to previous diagnostic"
-      keymap.set("n", "<leader>dk", vim.diagnostic.goto_next, {buffer=0})
+      keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, opts)
 
       opts.desc = "Diagnostic list"
-      keymap.set("n", "dl", "<cmd>Telescope diagnostic<cr>")
+      keymap.set("n", "dl", "<cmd>Telescope diagnostics<CR>", opts)
 
       opts.desc = "Rename"
-      keymap.set("n", "<leader>r", vim.lsp.buf.rename, {buffer=0})
+      keymap.set("n", "<leader>r", vim.lsp.buf.rename, opts)
     end
 
     local signs = { Error = "E", Warn = "W", Hint = "H", Info = "I" }
@@ -54,9 +54,9 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-     -- nvim-cmp supports additional completion capabilities
+    -- nvim-cmp supports additional completion capabilities
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+    capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
     -- Enable the following language servers
     local servers = { 
@@ -86,7 +86,6 @@ return {
       settings = {
         gopls = {
           completeUnimported = true,
-          -- usePlaceholders = true,
           gofumpt = true,
           analyses = {
             unusedparams = true,
@@ -103,10 +102,11 @@ return {
       settings = {
         ["rust-analyzer"] = {
           cargo = {
-            akllFeatures = true,
+            allFeatures = true,
           }
         }
       }
     })
-end
+  end
 }
+
