@@ -75,6 +75,13 @@ return {
       },     
     })
 
+    lspconfig.jdtls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/jdtls") },
+      root_dir = util.root_pattern({"gradlew", ".git", "mvnw"}),
+    })
+
     lspconfig.rust_analyzer.setup({
       on_attach = on_attach,
       capabilities = capabilities,
