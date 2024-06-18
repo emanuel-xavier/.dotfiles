@@ -101,7 +101,8 @@ source "$ZSH/oh-my-zsh.sh"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-EDITOR='nvim'
+export EDITOR='nvim'
+export VISUAL=$EDITOR
 
 # My Alias
 source "$HOME/.dotfiles/.alias.sh"
