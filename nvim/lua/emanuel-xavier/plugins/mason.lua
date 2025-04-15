@@ -32,7 +32,7 @@ return {
         "esbonio",
         "clangd",
         "gopls",
-        "tsserver",
+        "ts_ls",
         "pyright",
         "sqlls",
         "html",
