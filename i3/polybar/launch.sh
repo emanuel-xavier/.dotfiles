@@ -15,7 +15,8 @@ echo "Bars launched..."
 if type "xrandr"; then
   for monitor in $(xrandr --query | grep " connected" | cut -d" " -f1); do
     echo "---" | tee -a /tmp/polybar-${monitor}.log
-    MONITOR=$monitor polybar --reload bar 2>&1 | tee -a /tmp/polybar-${monitor}.log & disown
+    MONITOR=$monitor polybar --reload bar -c ~/.config/i3/polybar/config.ini 2>&1 | tee -a /tmp/polybar-${monitor}.log & disown
+    # MONITOR=$monitor polybar --reload bar 2>&1 | tee -a /tmp/polybar-${monitor}.log & disown
   done
 else
   polybar --reload bar 2>&1 | tee -a /tmp/polybar.log & disown
