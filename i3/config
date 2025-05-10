@@ -233,6 +233,9 @@ exec_always exec nitrogen --restore
 # picom
 exec --no-startup-id picom --config ~/.config/picom.conf > /tmp/picom.log &
 
+# dunst
+exec --no-startup-id dunst
+
 # remove panel border
 default_border pixel 0
 default_floating_border pixel 0
