@@ -14,4 +14,4 @@ install_xorg_input_lib() {
 }
 
 install_xorg_input_lib
-ln -s ./50-synaptics.conf /etc/x11/xorg.conf.d/50-synaptics.conf
+ln -s ($pwd)/50-synaptics.conf /etc/x11/xorg.conf.d/50-synaptics.conf
