@@ -17,7 +17,7 @@
     #
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
-    follow = none
+    follow = keyboard
 
     ### Geometry ###
 
@@ -44,7 +44,7 @@
     offset = (10, 50)
 
     # Scale factor. It is auto-detected if value is 0.
-    scale = 0
+    scale = 1
 
     # Maximum number of notification (0 means no limit)
     notification_limit = 20
@@ -60,7 +60,7 @@
     progress_bar_height = 10
 
     # Set the frame width of the progress bar
-    progress_bar_frame_width = 1
+    progress_bar_frame_width = 4
 
     # Set the minimum width for the progress bar
     progress_bar_min_width = 150
