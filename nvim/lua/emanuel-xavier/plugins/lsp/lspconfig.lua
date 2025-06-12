@@ -25,6 +25,7 @@ return {
       keymap.set("n", "K", vim.lsp.buf.hover, {desc = "Show documentation for what is under cursor", buffer = bufnr})
       keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, {desc = "Go to next diagnostic", buffer = bufnr})
       keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, {desc = "Go to previous diagnostic", buffer = bufnr})
+      keymap.set("n", "<leader>ds", vim.diagnostic.open_float, {desc = "Show diagnostic", buffer = bufnr})
       keymap.set("n", "dl", "<cmd>Telescope diagnostics<CR>", {desc = "Diagnostic list", buffer = bufnr})
       keymap.set("n", "<leader>r", vim.lsp.buf.rename, {desc = "Rename", buffer = bufnr})
     end
@@ -78,8 +79,16 @@ return {
     lspconfig.jdtls.setup({
       on_attach = on_attach,
       capabilities = capabilities,
-      cmd = { vim.fn.expand("~/.local/share/nvim/mason/bin/jdtls") },
+      cmd = {
+        vim.fn.expand("~/.local/share/nvim/mason/packages/jdtls/bin/jdtls"),
+        "-configuration", vim.fn.expand("~/.cache/jdtls/config"),
+        "-data", vim.fn.expand("~/.cache/jdtls/workspace")
+      },
       root_dir = util.root_pattern({"gradlew", ".git", "mvnw"}),
+      filetypes = {"java"},
+      init_options = {
+        bundles = require("spring_boot").java_extensions(),
+      },
     })
 
     lspconfig.rust_analyzer.setup({

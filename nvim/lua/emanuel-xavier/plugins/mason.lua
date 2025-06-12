@@ -37,6 +37,7 @@ return {
         "sqlls",
         "html",
         "cssls",
+        "jdtls",
       },
       utomatic_installation = true,
     })
