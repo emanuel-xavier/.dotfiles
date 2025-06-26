@@ -19,8 +19,10 @@ if [ "$is_plugged" -eq 1 ]; then
 else
     if [ "$battery_level" -le 15 ]; then
         icon="%{F#$icon_color} %{F-}"
+        notify-send "batery level: $battery_level" -u critical -i ~/.config/i3/polybar/low-batery.jpg
     elif [ "$battery_level" -le 25 ]; then
         icon="%{F#$icon_color} %{F-}"
+        notify-send "batery level: $battery_level" -u low -i ~/.config/i3/polybar/low-batery.jpg
     elif [ "$battery_level" -le 60 ]; then
         icon="%{F#$icon_color} %{F-}"
     elif [ "$battery_level" -le 90 ]; then
