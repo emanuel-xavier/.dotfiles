@@ -91,6 +91,20 @@ return {
       },
     })
 
+    lspconfig.zls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = {"zig"},
+      root_dir = util.root_pattern("build.zig"),
+      settings = {
+        zls = {
+          enable_inlay_hints = true,
+          enable_snippets = true,
+          warn_style = true,
+        }
+      }
+    })
+
     lspconfig.rust_analyzer.setup({
       on_attach = on_attach,
       capabilities = capabilities,
