@@ -46,8 +46,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # Screen brightness
 # Decrease screen brightness by 5%
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/.dotfiles/i3/screen-brightness.sh decrease
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/.dotfiles/i3/screen-brightness.sh increase
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set -5%
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -62,7 +62,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id env GTK_THEME=Adwaita:dark dmenu_run -fn 'Hack Nerd Font:bold:pixelsize=18'
+bindsym $mod+d exec --no-startup-id env GTK_THEME=Adwaita:dark dmenu_run -fn 'MartianMono Nerd Font:bold:pixelsize=18'
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
