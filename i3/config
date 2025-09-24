@@ -230,6 +230,10 @@ bindsym $mod+Shift+s exec flameshot gui -c -p "$HOME/Pictures/screenshots/$(date
 # nitrogen
 exec_always exec nitrogen --restore
 
+# copyq
+exec_always exec copyq
+bindsym $mod+Shift+v exec copyq toggle
+
 # picom
 exec --no-startup-id picom --config ~/.config/picom.conf > /tmp/picom.log &
 
