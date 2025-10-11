@@ -31,7 +31,7 @@ return {
         "pyright",
         "ts_ls",
       },
-      utomatic_installation = true,
+      automatic_installation = true,
     })
 
     end,

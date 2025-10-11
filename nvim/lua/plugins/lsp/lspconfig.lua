@@ -6,6 +6,7 @@ return {
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
     { "antosha417/nvim-lsp-file-operations", config = true },
+    "williamboman/mason-lspconfig.nvim",
   },
   config = function()
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
@@ -103,71 +104,7 @@ return {
       },
     })
 
-    lspconfig.jdtls.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-      cmd = {
-        vim.fn.expand("~/.local/share/nvim/mason/packages/jdtls/bin/jdtls"),
-        "--jvm-arg=-javaagent:" .. vim.fn.expand("~/.local/share/nvim/mason/packages/jdtls/lombok.jar"),
-      },
-      root_dir = util.root_pattern("gradlew", ".git", "mvnw", "pom.xml", "build.gradle"),
-      filetypes = {"java"},
-      settings = {
-        java = {
-          eclipse = {
-            downloadSources = true,
-          },
-          configuration = {
-            updateBuildConfiguration = "interactive",
-          },
-          maven = {
-            downloadSources = true,
-          },
-          implementationsCodeLens = {
-            enabled = true,
-          },
-          referencesCodeLens = {
-            enabled = true,
-          },
-          references = {
-            includeDecompiledSources = true,
-          },
-          format = {
-            enabled = true,
-          },
-        },
-        signatureHelp = { enabled = true },
-        completion = {
-          favoriteStaticMembers = {
-            "org.hamcrest.MatcherAssert.assertThat",
-            "org.hamcrest.Matchers.*",
-            "org.hamcrest.CoreMatchers.*",
-            "org.junit.jupiter.api.Assertions.*",
-            "java.util.Objects.requireNonNull",
-            "java.util.Objects.requireNonNullElse",
-            "org.mockito.Mockito.*",
-          },
-        },
-        contentProvider = { preferred = "fernflower" },
-        extendedClientCapabilities = {
-          progressReportProvider = false,
-        },
-        sources = {
-          organizeImports = {
-            starThreshold = 9999,
-            staticStarThreshold = 9999,
-          },
-        },
-        codeGeneration = {
-          toString = {
-            template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
-          },
-          useBlocks = true,
-        },
-      },
-      init_options = {
-        bundles = {},
-      },
-    })
+    -- jdtls is configured via ftplugin/java.lua using nvim-jdtls
+    -- This ensures proper Lombok support with custom command arguments
   end
 }
