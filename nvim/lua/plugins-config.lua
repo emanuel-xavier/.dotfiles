@@ -11,9 +11,12 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-    {import = "docker.plugins"},
-    -- {import = "docker.plugins.lsp"},
+require("lazy").setup(
+  {
+    -- {import = "themes"}, -- uncomment to download all themes avaliable
+    {import = "themes.theme_selector"},
+    {import = "plugins"},
+    {import = "plugins.lsp"},
   },
   {
     checker = {

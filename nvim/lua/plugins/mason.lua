@@ -10,34 +10,26 @@ return {
     mason.setup({
       ensure_installed = {
         -- Linter
-        "cpplint",
-        "eslint_d", 
         "golangci-lint",
         "pylint",
         -- Formatter
-        "clang-format",
         "gofumpt",
         "goimports",
         "goimports-reviser",
         "prettier",
-        "sqlfmt",
-        "typescript-language-server"
+        "typescript-language-server",
       }
     })
 
     mason_lspconfig.setup({
       ensure_installed = {
-        "lua_ls",
-        "rust_analyzer",
-        "esbonio",
-        "clangd",
-        "gopls",
-        "ts_ls",
-        "pyright",
-        "sqlls",
-        "html",
         "cssls",
+        "html",
+        "gopls",
         "jdtls",
+        "lua_ls",
+        "pyright",
+        "ts_ls",
       },
       utomatic_installation = true,
     })

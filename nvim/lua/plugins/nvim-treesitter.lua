@@ -21,7 +21,11 @@ return {
         autotag = {
           enable = true,
         },
-          -- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
+        -- ensure these language parsers are installed
+        ensure_installed = {
+          "lua",
+        },
+        -- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
         context_commentstring = {
           enable = true,
           enable_autocmd = false,
