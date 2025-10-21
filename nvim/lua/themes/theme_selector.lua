@@ -19,7 +19,6 @@ local function get_theme_module()
     return "themes." .. theme_name
 end
 
--- Fix background colors after colorscheme loads
 vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "*",
     callback = function()
@@ -35,8 +34,6 @@ local theme_module = get_theme_module()
 local ok, theme_spec = pcall(require, theme_module)
 
 if not ok then
-    print("⚠️ Falha ao carregar tema '" .. theme_module .. "': " .. theme_spec)
-    print("⚠️ Carregando fallback 'tokyo_night'")
     theme_spec = require("themes.tokyo_night")
 end
 
