@@ -24,6 +24,10 @@ return {
         -- ensure these language parsers are installed
         ensure_installed = {
           "lua",
+          "python",
+          "json",
+          "yaml",
+          "bash",
         },
         -- enable nvim-ts-context-commentstring plugin for commenting tsx and jsx
         context_commentstring = {
