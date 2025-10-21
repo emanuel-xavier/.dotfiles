@@ -21,6 +21,6 @@ return {
           quit_on_open = true,
         },
       },
-    }) 
+    })
   end
 }

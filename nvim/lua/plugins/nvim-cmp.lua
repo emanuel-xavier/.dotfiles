@@ -55,9 +55,9 @@ return {
           }
           item.menu = menu_icon[entry.source.name]
           return item
-        end 
+        end
       },
-      
+
     })
 
   end
