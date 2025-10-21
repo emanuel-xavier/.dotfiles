@@ -1,5 +1,3 @@
-local vim = vim
-
 return {
   "neovim/nvim-lspconfig",
   event = { "BufReadPre", "BufNewFile" },
@@ -74,10 +72,11 @@ return {
 
     -- Enable the following language servers
     local servers = {
-      'pyright',
-      'html',
       'cssls',
-      'ts_ls'
+      'html',
+      'ts_ls',
+      'lua_ls',
+      'pyright',
     }
     for _, lsp in ipairs(servers) do
       lspconfig[lsp].setup({
@@ -103,8 +102,5 @@ return {
         },
       },
     })
-
-    -- jdtls is configured via ftplugin/java.lua using nvim-jdtls
-    -- This ensures proper Lombok support with custom command arguments
   end
 }
