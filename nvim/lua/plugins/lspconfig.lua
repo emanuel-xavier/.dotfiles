@@ -10,24 +10,8 @@ return {
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local util = require("lspconfig/util")
 
-    local keymap = vim.keymap
-    local opts = { noremap = true, silent = true }
-
     local on_attach = function(client, bufnr)
-      local buf_opts = { noremap = true, silent = true, buffer = bufnr }
-
-      keymap.set("n", "gr", "<cmd>Telescope lsp_references<CR>", {desc = "Show LSP references", buffer = bufnr})
-      keymap.set("n", "gD", vim.lsp.buf.declaration, {desc = "Go to declaration", buffer = bufnr})
-      keymap.set("n", "gd", vim.lsp.buf.definition, {desc = "Go to definition", buffer = bufnr})
-      keymap.set("n", "gt", vim.lsp.buf.type_definition, {desc = "Go to type definition", buffer = bufnr})
-      keymap.set("n", "gi", vim.lsp.buf.implementation, {desc = "Go to implementation", buffer = bufnr})
-      keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, {desc = "Signature help", buffer = bufnr})
-      keymap.set("n", "K", vim.lsp.buf.hover, {desc = "Show documentation for what is under cursor", buffer = bufnr})
-      keymap.set("n", "<leader>dj", vim.diagnostic.goto_next, {desc = "Go to next diagnostic", buffer = bufnr})
-      keymap.set("n", "<leader>dk", vim.diagnostic.goto_prev, {desc = "Go to previous diagnostic", buffer = bufnr})
-      keymap.set("n", "<leader>ds", vim.diagnostic.open_float, {desc = "Show diagnostic", buffer = bufnr})
-      keymap.set("n", "dl", "<cmd>Telescope diagnostics<CR>", {desc = "Diagnostic list", buffer = bufnr})
-      keymap.set("n", "<leader>r", vim.lsp.buf.rename, {desc = "Rename", buffer = bufnr})
+      require("config.lsp").set_lsp_keymaps(client, bufnr)
     end
 
     -- Configure diagnostic signs and float window using the new API

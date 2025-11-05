@@ -16,7 +16,6 @@ require("lazy").setup(
     -- {import = "themes"}, -- uncomment to download all themes avaliable
     {import = "themes.theme_selector"},
     {import = "plugins"},
-    {import = "plugins.lsp"},
   },
   {
     checker = {
