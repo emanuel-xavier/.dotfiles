@@ -32,6 +32,9 @@ return {
         "ts_ls",
       },
       automatic_installation = true,
+      handlers = {
+        ["jdtls"] = function() end,
+      },
     })
 
     end,

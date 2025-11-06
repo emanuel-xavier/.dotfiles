@@ -1,5 +1,5 @@
 local function get_jdtls()
-    local jdtls_path = "~/.local/share/nvim/mason/packages/jdtls"
+    local jdtls_path = vim.fn.expand("~/.local/share/nvim/mason/packages/jdtls")
     -- Obtain the path to the jar which runs the language server
     local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
      -- Declare white operating system we are using, windows use win, macos use mac
