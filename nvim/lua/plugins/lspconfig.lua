@@ -55,6 +55,7 @@ return {
     local lspconfig = require("lspconfig")
 
     -- Enable the following language servers
+    -- Note: jdtls is NOT in this list because it has custom configuration in config/jdtls.lua
     local servers = {
       'cssls',
       'html',
@@ -67,6 +68,12 @@ return {
         on_attach = on_attach,
         capabilities = capabilities,
       })
+    end
+
+    -- Explicitly disable jdtls automatic setup from lspconfig
+    -- It will be configured via our custom config/jdtls.lua
+    lspconfig.jdtls.setup = function()
+      -- Do nothing, we handle jdtls manually
     end
 
     lspconfig.gopls.setup({
