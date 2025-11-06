@@ -1,10 +1,5 @@
 local function get_jdtls()
-    -- Get the Mason Registry to gain access to downloaded binaries
-    local mason_registry = require("mason-registry")
-    -- Find the JDTLS package in the Mason Regsitry
-    local jdtls = mason_registry.get_package("jdtls")
-    -- Find the full path to the directory where Mason has downloaded the JDTLS binaries
-    local jdtls_path = jdtls:get_install_path()
+    local jdtls_path = "~/.local/share/nvim/mason/packages/jdtls"
     -- Obtain the path to the jar which runs the language server
     local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
      -- Declare white operating system we are using, windows use win, macos use mac
@@ -91,11 +86,11 @@ local function setup_jdtls()
     local workspace_dir = get_workspace()
 
     -- Get the bundles list with the jars to the debug adapter, and testing adapters
-    local bundles = get_bundles()
+    -- local bundles = get_bundles()
 
     -- Determine the root directory of the project by looking for these specific markers
     local root_dir = jdtls.setup.find_root({ '.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle' });
-    
+
     -- Tell our JDTLS language features it is capable of
     local capabilities = {
         workspace = {
