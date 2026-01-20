@@ -7,8 +7,8 @@ return {
           update_cwd  = false,
           ignore_list = {}
       },
-      vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeFocus<CR>', { noremap = true, silent = true }),
-      vim.api.nvim_set_keymap('n', '<leader>ft', ':NvimTreeToggle<CR>', { noremap = true, silent = true }),
+      vim.api.nvim_set_keymap('n', '<leader>e', ':NvimTreeFocus<CR>', { noremap = true, silent = true, desc = 'Focus on file tree' }),
+      vim.api.nvim_set_keymap('n', '<leader>ft', ':NvimTreeToggle<CR>', { noremap = true, silent = true, desc = 'Toggle file tree' }),
       view = {
         side = "left",
         width = 40,

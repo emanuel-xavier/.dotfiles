@@ -216,7 +216,7 @@ local function setup_jdtls()
             },
              -- If changes to the project will require the developer to update the projects configuration advise the developer before accepting the change
             configuration = {
-                updateBuildConfiguration = "interactive"
+                updateBuildConfiguration = "disabled"
             },
             -- enable code lens in the lsp
             referencesCodeLens = {
