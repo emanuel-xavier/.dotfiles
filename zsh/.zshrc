@@ -122,6 +122,9 @@ update_git_config() {
 # Set up the chpwd hook to execute the update_git_config function
 chpwd_functions+=(update_git_config)
 
+alias arduino-ide='arduino-ide --ozone-platform=x11 --disable-gpu --disable-software-rasterizer'
+
 # Initial call to set up Git configuration based on the starting directory
 update_git_config
 eval "$(ssh-agent -s)" > /dev/null
+eval "$(mise activate zsh)"
