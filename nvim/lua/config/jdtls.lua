@@ -1,23 +1,34 @@
-local function get_bundles()
-    -- Get the Mason Registry to gain access to downloaded binaries
-    local mason_registry = require("mason-registry")
-    -- Find the Java Debug Adapter package in the Mason Registry
-    local java_debug = mason_registry.get_package("java-debug-adapter")
-    -- Obtain the full path to the directory where Mason has downloaded the Java Debug Adapter binaries
-    local java_debug_path = java_debug:get_install_path()
+local function get_jdtls()
+    local jdtls_path = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
 
+    local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
+
+    local os_config
+    if vim.fn.has("mac") == 1 then
+        os_config = jdtls_path .. "/config_mac"
+    elseif vim.fn.has("unix") == 1 then
+        os_config = jdtls_path .. "/config_linux"
+    else
+        os_config = jdtls_path .. "/config_win"
+    end
+
+    local lombok = jdtls_path .. "/lombok.jar"
+
+    return launcher, os_config, lombok
+end
+
+local function get_bundles()
+    local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
+
+    local java_debug_path = mason_packages .. "/java-debug-adapter"
     local bundles = {
         vim.fn.glob(java_debug_path .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", 1)
     }
 
-    -- Find the Java Test package in the Mason Registry
-    local java_test = mason_registry.get_package("java-test")
-    -- Obtain the full path to the directory where Mason has downloaded the Java Test binaries
-    local java_test_path = java_test:get_install_path()
-     -- Add all of the Jars for running tests in debug mode to the bundles list
-     vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", 1), "\n"))
+    local java_test_path = mason_packages .. "/java-test"
+    vim.list_extend(bundles, vim.split(vim.fn.glob(java_test_path .. "/extension/server/*.jar", 1), "\n"))
 
-     return bundles
+    return bundles
 end
 
 local function is_java_project()
@@ -86,7 +97,7 @@ local function setup_jdtls()
         local workspace_dir = get_workspace()
 
         -- Get the bundles list with the jars to the debug adapter, and testing adapters
-        -- local bundles = get_bundles()
+        local bundles = get_bundles()
 
         -- Determine the root directory of the project by looking for these specific markers
         local root_dir = jdtls.setup.find_root({ '.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle' });
