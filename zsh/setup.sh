@@ -9,9 +9,7 @@ install_packages() {
             zsh
     elif [ -f /etc/arch-release ]; then
         sudo pacman -S --needed \
-            curl gcc make mariadb-libs openssl zlib \
-            libutil-linux bzip2 sqlite llvm ncurses \
-            xz tk libffi xz python-openssl git zsh
+            git zsh ttf-jetbrains-mono-nerd fzf
     else
         echo "Unsupported distribution. Please install the required packages manually."
         exit 1
@@ -23,17 +21,4 @@ install_packages() {
 install_packages
 chsh -s /bin/zsh
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-git clone https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
-
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-
-mkdir -p ~/.fonts
-git clone https://github.com/pdf/ubuntu-mono-powerline-ttf.git ~/.fonts/ubuntu-mono-powerline-ttf
-fc-cache -vf
-
-rm -rf ~/.zshrc
 ln -s $(pwd)/.zshrc ~/.zshrc
