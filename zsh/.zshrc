@@ -56,6 +56,7 @@ bindkey '^[[1;5C' forward-word   # Ctrl+Right
 bindkey '^[[1;5D' backward-word  # Ctrl+Left
 bindkey '^[[1;5A' history-search-backward  # Ctrl+Up
 bindkey '^[[1;5B' history-search-forward   # Ctrl+Down
+bindkey '^[[3~' delete-char               # Delete
 zinit cdreplay -q
 
 # History
