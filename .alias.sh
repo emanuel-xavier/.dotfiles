@@ -43,3 +43,5 @@ echo 0 > /sys/devices/system/cpu/cpu<NUMBER>/online
 echo 1 > /sys/devices/system/cpu/cpu<NUMBER>/online
 	- Number between 0 and 15
 '
+
+alias lfr-build='mise use java@17.0.0 &&  gradle clean assemble && mise use java@21.0.2'

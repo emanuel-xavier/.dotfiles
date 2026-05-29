@@ -20,6 +20,7 @@ return {
     local servers = {
       "cssls",
       "html",
+      "kotlin_lsp",
       "ts_ls",
       "lua_ls",
       "pyright",

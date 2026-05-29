@@ -12,6 +12,7 @@ return {
         -- Linter
         "golangci-lint",
         "pylint",
+        "ktlint",
         -- Formatter
         "gofumpt",
         "goimports",
@@ -27,6 +28,7 @@ return {
         "html",
         "gopls",
         "jdtls",
+        "kotlin_lsp",
         "lua_ls",
         "pyright",
         "ts_ls",
