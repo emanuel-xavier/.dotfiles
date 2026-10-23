@@ -18,6 +18,7 @@ vim.opt.backup = false
 vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
 vim.opt.undofile = true
 
+vim.opt.ignorecase = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
