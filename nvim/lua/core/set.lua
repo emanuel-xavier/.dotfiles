@@ -15,7 +15,12 @@ vim.opt.wrap = true
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
+local undodir = vim.fn.stdpath("data") .. "/undodir"
+-- Create the directory if it doesn't exist yet
+if vim.fn.isdirectory(undodir) == 0 then
+  vim.fn.mkdir(undodir, "p")
+end
+vim.opt.undodir = undodir
 vim.opt.undofile = true
 
 vim.opt.ignorecase = true
